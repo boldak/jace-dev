@@ -1,0 +1,11 @@
+export default {
+      user: <%- JSON.stringify(userInfo) %>,
+      author: <%- JSON.stringify(userInfo) %>,
+      appName: "<%= app.name %>",
+      initialConfig: <%- JSON.stringify(publicAppConfig) %>,
+      dpsURL: initialConfig.dpsURL,
+      __application_Config_Key: "<%= publicAppConfig.id %>-application-config"
+      __application_Mode_Key:  "<%= publicAppConfig.id %>-mode"
+
+}     
+  

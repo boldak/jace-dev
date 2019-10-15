@@ -1,0 +1,91 @@
+{
+  "title": "Djvue host bootstrap",
+  "description": "First user registration for admins (Click 'G+' button on top-right corner). After registration delete this app on page: ",
+  "keywords": [],
+  "isPublished": true,
+  "pages": [
+    {
+      "title": "Home",
+      "layout": "layout-1-2",
+      "holders": {
+        "Top": {
+          "widgets": [
+            {
+              "type": "html-widget",
+              "name": "noname",
+              "icon": "mdi-language-html5",
+              "options": {
+                "widget": {
+                  "visible": true
+                }
+              },
+              "data": {
+                "source": "embedded",
+                "embedded": "<div class=\"subheading primary--text\" style=\"padding-bottom:3em;\">\n    <center>\n        <h1>\n            <span>\n                <img src=\"{{app.config.icon}}\" style=\"width:1em;padding:0.5em 0 0 0\">\n            </span>\n            {{app.title}}\n        </h1>\n        <span class=\"warning--text\">{{app.description}}</span><a href=\"{{window.location.host}}\">DjVue Apps</a>\n    </center>    \n</div>",
+                "script": ""
+              },
+              "id": "brc5hkwvwqn"
+            }
+          ]
+        },
+        "Column 1": {
+          "widgets": []
+        },
+        "Column 2": {
+          "widgets": []
+        }
+      },
+      "url": "http://localhost:8080/app/DJVUE-Bootstrap#/"
+    }
+  ],
+  "name": "DJVUE-Bootstrap",
+  "i18n": {
+    "en": {},
+    "uk": {}
+  },
+  "icon": "./img/djvue.png",
+  "skin": {
+    "holders": {
+      "AppHeader": {
+        "widgets": [
+          {
+            "type": "app-topbar-widget",
+            "name": "noname",
+            "icon": "mdi-page-layout-header",
+            "options": {
+              "widget": {
+                "visible": true
+              }
+            },
+            "data": {
+              "source": "embedded",
+              "embedded": {
+                "title": "DjVue Host Bootstrap",
+                "locale": false,
+                "user": true,
+                "login": true,
+                "references": []
+              },
+              "script": ""
+            },
+            "id": "q12diudvaqn"
+          }
+        ]
+      },
+      "AppFooter": {
+        "widgets": []
+      }
+    }
+  },
+  "dpsURL": "",
+  "theme": {
+    "primary": "#1565C0",
+    "secondary": "#757575",
+    "accent": "#448AFF",
+    "error": "#f44336",
+    "warning": "#FF8F00",
+    "info": "#1E88E5",
+    "success": "#2E7D32"
+  },
+  "importedFromURL": "http://localhost:8080/app/DJVUE-Bootstrap"
+}

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="../../">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <!-- <link href='https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900|Material+Icons' rel="stylesheet"> -->
+  <link href='modules/google-fonts/roboto.css' rel="stylesheet">
+  
+  <!-- <link rel="stylesheet" href="modules/components-font-awesome\css\font-awesome.min.css"> -->
+  <link href="modules/@mdi/font/css/materialdesignicons.css" rel="stylesheet">
+  <link href="modules/vuetify/dist/vuetify.min.css" rel="stylesheet">
+ <!-- <link href="https://cdn.jsdelivr.net/npm/vuetify/dist/vuetify.min.css" rel="stylesheet"> -->
+ <link rel="stylesheet" href="modules/katex/dist/katex.min.css">
+ <title><%= app.name %></title>
+  <meta name="description" content="<%= app.description %>">
+  <meta name="keywords" content="<%= app.keywords ? app.keywords.join(', ') : "" %>">
+  <meta name="author" content="<%= ownerInfo.name %>">
+  <meta name="Echarts" content="<%= require_Echarts %>">
+  <meta name="Mermaid" content="<%= require_Mermaid %>">
+
+
+
+
+  <% /* The following should be inside <head> tag! */ %>
+  <% include ga.ejs %>
+  
+   
+</head>
+
+<body>
+<div id="app"></div>
+
+<% if ((appMode == 'development') || require_Ace) { %>
+  <script src="modules/ace-builds/src/ace.js"></script>
+  <script src="modules/ace-builds/src/ext-static_highlight.js"></script>
+  <script src="modules/ace-builds/src/mode-dps.js"></script>
+  <script src="modules/ace-builds/src/mode-csv.js"></script>
+  <script src="modules/ace-builds/src/mode-html.js"></script>
+  <script src="modules/ace-builds/src/mode-xml.js"></script>
+  <script src="modules/ace-builds/src/mode-text.js"></script>
+  <script src="modules/ace-builds/src/mode-javascript.js"></script>
+  <script src="modules/ace-builds/src/mode-json.js"></script>
+  <script src="modules/ace-builds/src/mode-dot.js"></script>
+  <script src="modules/ace-builds/src/mode-markdown.js"></script>
+  <script src="modules/ace-builds/src/theme-tomorrow.js"></script>
+<% } %>
+
+
+<!-- <script src="modules/markdown-it/dist/markdown-it.js"></script> -->
+
+<!-- <script src="es6-polyfill.js"></script>
+<script src="/module/es6-module-loader/dist/es6-module-loader.src.js"></script>
+<script src="/module/system.js/dist/system.src.js"></script>
+<script>
+  window.define = System.amdDefine.bind(System);
+  window.require = window.requirejs = System.amdRequire.bind(System);
+</script> -->
+
+
+
+
+
+
+
+
+  <script src="modules/lodash/lodash.js"></script>
+  <script src="modules/moment/min/moment.min.js"></script>
+  <script src="modules/moment/locale/uk.js"></script>
+  
+  <script src="modules/tinycolor2/tinycolor.js"></script>
+  <script src="modules/vue/dist/vue.js"></script>
+  
+  <script>
+      var user = <%- JSON.stringify(userInfo) %>;
+      var author = <%- JSON.stringify(userInfo) %>;
+      var appName = "<%= app.name %>";
+      var initialConfig = <%- JSON.stringify(publicAppConfig) %>;
+      var dpsURL = initialConfig.dpsURL;
+  </script>
+
+
+  <script src="modules/tiny-cookie/dist/tiny-cookie.js"></script>
+  <script src="modules/vuex/dist/vuex.js"></script>
+  <script src="modules/vuetify/dist/vuetify.js"></script>
+  <script src="modules/browser-vue-loader/dist/browser-vue-loader.js"></script>
+  <script src="modules/vue-router/dist/vue-router.js"></script>
+  <script src="modules/vuedl/dist/vuedl.js"></script>
+  <script src="modules/vue-clipboard2/dist/vue-clipboard.js"></script>
+
+
+
+  <script src="modules/vue-i18n/dist/vue-i18n.js"></script>
+
+
+  <script src="modules/axios/dist/axios.min.js"></script>
+
+<% if (appMode == 'development' || require_Echarts) { %>
+   <script src="modules/echarts/dist/echarts.min.js"></script>
+    <!--<script src="modules/incubator-echarts-2.2.7/build/dist/echarts-all.js"></script>
+  -->
+     <script src="modules/echarts-gl/dist/echarts-gl.min.js"></script>
+     <script src="modules/echarts-wordcloud/dist/echarts-wordcloud.min.js"></script>
+<% } %>
+
+
+
+
+
+<script>
+ var __application_Config_Key =  "<%= publicAppConfig.id %>-application-config";
+ var __application_Mode_Key =  "<%= publicAppConfig.id %>-mode";
+ 
+ sessionStorage.setItem(__application_Config_Key, JSON.stringify(initialConfig))
+
+ // function requireModules ( pathes ) {
+ //      pathes = _.isArray(pathes) ? pathes : [pathes]
+ //      return Promise.all(
+ //        pathes.map( p => new Promise( ( resolve, reject ) => {
+ //            axios.create({baseURL:"/"})
+ //            .get(p)
+ //            .then( res => {
+ //              eval(res.data)
+ //              resolve(true)
+ //            })
+ //            .catch(e => {reject(e)})   
+ //        })
+ //      ))
+ // }
+
+
+var translations = {
+  en: {
+    
+      hello: 'hello world'
+   
+  },
+  uk: {
+   
+      hello: 'ПРИВІТ'
+   
+  }
+}
+
+const i18n = new VueI18n({
+  locale: 'en', // set locale
+  translations, // set locale messages
+})
+
+
+
+
+
+
+
+
+
+
+  Vue.use(Vuetify, {
+    lang: {
+      t: (key, ...params) => i18n.t(key, params)
+    }
+  })
+
+  // Vue.use(UploadButton);
+
+Vue.use(VueClipboard)
+
+
+
+var router = new VueRouter({
+  // hashbang: false,
+  // mode: 'history',
+  routes:[]
+})
+
+window.appRouter = router
+
+window.gotoPage = path => {
+      console.log(window.appRouter)
+      window.appRouter.push(path)
+}
+
+
+  loadVue('djvue/djvue-app.vue').then(App => {
+    new Vue({
+      router,
+      i18n,
+      render: h => h(App)
+    }).$mount('#app')
+  })
+
+</script>
+
+<% if (appMode == 'development' || require_Mermaid) { %>
+  <script src="modules/mermaid/dist/mermaid.js"></script>
+   
+  <script>
+  mermaid.initialize({
+        theme: 'neutral',
+        // themeCSS: '.node rect { fill: red; }',
+        logLevel: 3,
+        flowchart: { curve: 'linear' },
+        gantt: { axisFormat: '%m/%d/%Y' },
+        sequence: { actorMargin: 50 },
+        // sequenceDiagram: { actorMargin: 300 } // deprecated
+      });
+  </script>
+<% } %>
+
+<div id="loader" class="text-xs-center primary--text headline font-weight-light" style="margin-top:128px;">
+   <div id="appMode" class="warning--text subheading"></div>
+   <div id="userInfo" class="primary--text subheading"></div>
+   <i class="mdi mdi-spin mdi-loading" style="
+      font-size: 2em;
+      background: <%- (publicAppConfig.icon) ? `url('${publicAppConfig.icon}')` : `url('./img/dj.png')` %>;
+      background-size: 60%;
+      background-repeat: no-repeat;
+      background-position: 50%;
+  "></i> 
+  <div id="loaderMessage"><%= app.name %> loading...</div>
+     <!-- elasticsearch loading... -->
+  </div>
+
+<script>
+  let _m = Cookie.get(__application_Mode_Key)
+  document.getElementById("appMode").innerHTML = ( _m == "development" ) 
+                                ? `<i class="mdi mdi-wrench-outline"></i> <b>Development mode</b>` : 
+                                "&nbsp;"
+
+  function __splashMessage(msg){
+    let container = document.getElementById("loaderMessage") 
+    if(container){
+      container.innerHTML = '"<%= app.name %>" '  + msg  
+    }
+    
+  }
+  
+  __splashMessage("loading...")
+
+</script>
+
+
+</body>
+</html>
+
+
+
+
+
+
+

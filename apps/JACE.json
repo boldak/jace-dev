@@ -1,0 +1,145 @@
+{
+  "skinName": "dj",
+  "title": "DJVUE application",
+  "description": "DJVUE application template",
+  "keywords": [
+    "djvue"
+  ],
+  "isPublished": true,
+  "appWidgets": [
+    {
+      "type": "language-selector",
+      "instanceName": "language-selector",
+      "showFlags": true
+    },
+    {
+      "type": "page-list",
+      "instanceName": "page-list-nav"
+    },
+    {
+      "instanceName": "AppTopbar",
+      "type": "v2.topbar",
+      "icon": "/widgets/v2.topbar/icon.png",
+      "decoration": {
+        "languageSelector": {
+          "enable": true,
+          "showFlag": true,
+          "showTitle": true
+        },
+        "loginButton": true,
+        "gotoApps": false
+      },
+      "content": []
+    }
+  ],
+  "pages": [
+    {
+      "title": "Home",
+      "layout": "layout-1-2",
+      "holders": {
+        "Top": {
+          "widgets": [
+            {
+              "type": "app-list-widget",
+              "name": "noname",
+              "icon": "mdi-apps",
+              "options": {
+                "widget": {
+                  "visible": true
+                }
+              },
+              "data": {
+                "source": "embedded",
+                "embedded": "<h2 color=\"#eee\"><center>not configured<center></h2><p>Use options dialog for configure this widget</p>",
+                "script": ""
+              },
+              "id": "zahunbsnqns"
+            }
+          ]
+        },
+        "Column 1": {
+          "widgets": []
+        },
+        "Column 2": {
+          "widgets": []
+        }
+      },
+      "id": ""
+    }
+  ],
+  "name": "DJVUE",
+  "i18n": {
+    "en": {
+      "#1": "# EN TRANSLATION"
+    },
+    "uk": {
+      "#1": "# UK TRANSLATION"
+    }
+  },
+  "icon": "./img/djvue.png",
+  "importedFromURL": "http://localhost:8080/app/DJVUE",
+  "dps": "https://dj-dps.herokuapp.com",
+  "skin": {
+    "holders": {
+      "AppHeader": {
+        "widgets": [
+          {
+            "type": "app-topbar-widget",
+            "name": "noname",
+            "icon": "mdi-page-layout-header",
+            "options": {
+              "widget": {
+                "visible": true
+              }
+            },
+            "data": {
+              "source": "embedded",
+              "embedded": {
+                "title": "DJVUE. Build your SPA online",
+                "user": true,
+                "login": true,
+                "references": []
+              },
+              "script": ""
+            },
+            "id": "h7malxbudn6"
+          }
+        ]
+      },
+      "AppFooter": {
+        "widgets": [
+          {
+            "type": "app-footer-widget",
+            "name": "noname",
+            "icon": "mdi-page-layout-footer",
+            "options": {
+              "widget": {
+                "visible": true
+              }
+            },
+            "data": {
+              "source": "embedded",
+              "embedded": {
+                "title": "DJVUE. Build your SPA online",
+                "description": "Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet. Mauris cursus commodo interdum. Praesent ut risus eget metus luctus accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum tempor vel ut orci. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+                "references": []
+              },
+              "script": ""
+            },
+            "id": "8nx4hw75l8c"
+          }
+        ]
+      }
+    }
+  },
+  "dpsURL": "http://dj-storage.herokuapp.com",
+  "theme": {
+    "primary": "#1565C0",
+    "secondary": "#757575",
+    "accent": "#448AFF",
+    "error": "#f44336",
+    "warning": "#FF8F00",
+    "info": "#1E88E5",
+    "success": "#2E7D32"
+  }
+}
