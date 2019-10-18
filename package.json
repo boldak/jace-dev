@@ -6,7 +6,7 @@
   "scripts": {
     "postinstall":"git clone https://github.com/boldak/jace-front.git && cd jace-front && npm install && cd .. && npm run _build",
     "dev": "cd jace-front && npm run dev",
-    "_build": "cd jace-front && npm run build",
+    "_build": "cd jace-front && npm run _build",
     "start": "node --harmony ./node_modules/sails/bin/sails lift",
     "debug": "node --harmony debug ./node_modules/sails/bin/sails lift",
     "test": "gulp test"
