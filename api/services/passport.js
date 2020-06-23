@@ -67,6 +67,9 @@ passport.connect = function (req, query, profile, next) {
   var user = {}
     , provider;
 
+  // console.log("passport.connect profile", profile)
+
+
   // Get the authentication provider from the query.
   query.provider = req.param('provider');
 
@@ -111,6 +114,9 @@ passport.connect = function (req, query, profile, next) {
     provider   : provider
   , identifier : query.identifier.toString()
   }, function (err, passport) {
+    
+    // console.log("passport.connect find passport", passport)
+    
     if (err) {
       return next(err);
     }
@@ -120,6 +126,9 @@ passport.connect = function (req, query, profile, next) {
       //           authentication provider.
       // Action:   Create a new user and assign them a passport.
       if (!passport) {
+        
+        // console.log("passport.connect create user", user)
+
         User.create(user, function (err, user) {
           if (err) {
             if (err.code === 'E_VALIDATION') {
