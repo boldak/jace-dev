@@ -121,6 +121,7 @@ module.exports = {
 		          },
 		          publicAppConfig: {
 		            id: app.id,
+		            
 		            instance: `${app.name}_${Math.random().toString(36).substring(2)}`,
 		            name: app.name,
 		            devService: portal,
