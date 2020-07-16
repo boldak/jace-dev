@@ -28,6 +28,10 @@ module.exports.routes = {
   'get /auth/:provider/callback': 'AuthController.callback',
   'get /auth/:provider/:action': 'AuthController.callback',
 
+
+  "get /sse/:clientID" : "SSEController.subscribe",
+  "post /sse/:event" : "SSEController.publish",
+
   // Views
   // 'get /': 'AppViewController.getView',
   // 'get /app/:appName': 'AppViewController.getView',
