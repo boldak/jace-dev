@@ -63,7 +63,19 @@ module.exports = {
         }  
         
           
-        
+        sails.services.sse.publish({
+          channel:"app",
+          event:"access",
+          data:{
+            event:"access",
+            app:{
+              id: app.id,
+              name: app.name
+            },
+            user,
+            date: new Date()
+          }
+        })
 
         if(app.skin) {
           _.values(app.skin.holders).forEach( h => {

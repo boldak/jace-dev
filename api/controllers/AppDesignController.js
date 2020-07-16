@@ -80,6 +80,20 @@ module.exports = {
 		        // console.log(requireWidgets)
 
 
+		        // sails.services.sse.publish({
+		        //   channel:"app",
+		        //   event:"access",
+		        //   data:{
+		        //         event:"access",
+			       //      app:{
+			       //        id: app.id,
+			       //        name: app.name
+			       //      },
+			       //      user:userInfo,
+			       //      date: new Date()
+		        //   }
+		        // })
+
 		       let config = {
 		          app: app,
 
@@ -107,6 +121,8 @@ module.exports = {
 		          },
 		          publicAppConfig: {
 		            id: app.id,
+		            
+		            instance: `${app.name}_${Math.random().toString(36).substring(2)}`,
 		            name: app.name,
 		            devService: portal,
 

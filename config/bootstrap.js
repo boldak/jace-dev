@@ -63,7 +63,7 @@ var addDefaultPortalConfig = function(){
 
 module.exports.bootstrap = function (cb) {
   sails.services.passport.loadStrategies();
-
+  
   // add default admins; you can add others later on using mongodb console
   // for (var i = 0; i < sails.config.admins.length; ++i) {
   //   var adminEmail = sails.config.admins[i];
