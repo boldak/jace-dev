@@ -116,7 +116,7 @@ module.exports.session = {
   ***************************************************************************/
 
   username: 'jace',
-  password: jace'',
+  password: 'jace',
   // auto_reconnect: false,
   ssl: true,
   // stringify: true
