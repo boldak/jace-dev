@@ -99,7 +99,8 @@ module.exports.session = {
         retryWrites:true,
         w: "majority",
         ssl:true
-      },
+      }
+  },
 //   host: process.env.DB_PORT_27017_TCP_ADDR || '127.0.0.1',
 //   port: process.env.DB_PORT_27017_TCP_PORT || 27017,
   db: 'dj-portal',
