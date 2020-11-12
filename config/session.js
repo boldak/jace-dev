@@ -14,14 +14,14 @@
 
 
 console.log("Production mode:")
-console.log({
-  adapter: 'mongo',
-  host: process.env.DB_PORT_27017_TCP_ADDR || '127.0.0.1',
-  port: process.env.DB_PORT_27017_TCP_PORT || 27017,
-  db: 'dj-session',
-  collection: 'sessions',
-  url: process.env.MONGOLAB_URI || process.env.MONGODB_URL
-})
+// console.log({
+//   adapter: 'mongo',
+//   host: process.env.DB_PORT_27017_TCP_ADDR || '127.0.0.1',
+//   port: process.env.DB_PORT_27017_TCP_PORT || 27017,
+//   db: 'dj-session',
+//   collection: 'sessions',
+//   url: process.env.MONGOLAB_URI || process.env.MONGODB_URL
+// })
 
 
 module.exports.session = {
@@ -79,11 +79,32 @@ module.exports.session = {
   ***************************************************************************/
 
   adapter: 'mongo',
-  host: process.env.DB_PORT_27017_TCP_ADDR || '127.0.0.1',
-  port: process.env.DB_PORT_27017_TCP_PORT || 27017,
-  db: 'dj-session',
+  replSet: {
+      servers: [
+        {
+          host: 'cluster0-shard-00-00.99389.mongodb.net',
+          port: 27017 // Will override port from default config (optional)
+        },
+        {
+          host: 'cluster0-shard-00-01.99389.mongodb.net',
+          port: 27017
+        },
+        {
+          host: 'cluster0-shard-00-02.99389.mongodb.net',
+          port: 27017
+        }
+      ],
+      options: {
+        authSource:"admin",
+        retryWrites:true,
+        w: "majority",
+        ssl:true
+      },
+//   host: process.env.DB_PORT_27017_TCP_ADDR || '127.0.0.1',
+//   port: process.env.DB_PORT_27017_TCP_PORT || 27017,
+  db: 'dj-portal',
   collection: 'sessions',
-  url: process.env.MONGOLAB_URI || process.env.MONGODB_URL
+//   url: process.env.MONGOLAB_URI || process.env.MONGODB_URL
 
   /***************************************************************************
   *                                                                          *
@@ -94,10 +115,10 @@ module.exports.session = {
   *                                                                          *
   ***************************************************************************/
 
-  // username: '',
-  // password: '',
+  username: 'jace',
+  password: jace'',
   // auto_reconnect: false,
-  // ssl: false,
+  ssl: true,
   // stringify: true
 
 };
