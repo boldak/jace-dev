@@ -58,11 +58,34 @@ module.exports.connections = {
   ***************************************************************************/
   mongodbServer: {
     adapter: 'sails-mongo',
-    host: process.env.DB_PORT_27017_TCP_ADDR || '127.0.0.1',
-    port: process.env.DB_PORT_27017_TCP_PORT || 27017,
-    url: process.env.MONGOLAB_URI || process.env.MONGODB_URL,
-    // user: 'username',
-    // password: 'password',
+    replSet: {
+      servers: [
+        {
+          host: 'cluster0-shard-00-00.99389.mongodb.net',
+          port: 27017 // Will override port from default config (optional)
+        },
+        {
+          host: 'cluster0-shard-00-01.99389.mongodb.net',
+          port: 27017
+        },
+        {
+          host: 'cluster0-shard-00-02.99389.mongodb.net',
+          port: 27017
+        }
+      ],
+      options: {
+        authSource:"admin",
+        retryWrites:true,
+        w: "majority",
+        ssl:true
+      } // See http://mongodb.github.io/node-mongodb-native/api-generated/replset.html (optional)
+    },
+    
+//     host: process.env.DB_PORT_27017_TCP_ADDR || '127.0.0.1',
+//     port: process.env.DB_PORT_27017_TCP_PORT || 27017,
+//     url: process.env.MONGOLAB_URI || process.env.MONGODB_URL,
+    user: 'jace',
+    password: 'jace',
     database: 'dj-portal'
   },
 
