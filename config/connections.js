@@ -56,37 +56,49 @@ module.exports.connections = {
   * Run: npm install sails-mongo                                             *
   *                                                                          *
   ***************************************************************************/
+  //mongodb://<username>:<password>@cluster0-shard-00-00.99389.mongodb.net:27017,cluster0-shard-00-01.99389.mongodb.net:27017,cluster0-shard-00-02.99389.mongodb.net:27017/<dbname>?ssl=true&replicaSet=atlas-b2k500-shard-0&authSource=admin&retryWrites=true&w=majority
   mongodbServer: {
     adapter: 'sails-mongo',
-    replSet: {
-      servers: [
-        {
-          host: 'cluster0-shard-00-00.99389.mongodb.net',
-          port: 27017 // Will override port from default config (optional)
-        },
-        {
-          host: 'cluster0-shard-00-01.99389.mongodb.net',
-          port: 27017
-        },
-        {
-          host: 'cluster0-shard-00-02.99389.mongodb.net',
-          port: 27017
-        }
-      ],
-      options: {
-        authSource:"admin",
-        retryWrites:true,
-        w: "majority",
-        ssl:true
-      } // See http://mongodb.github.io/node-mongodb-native/api-generated/replset.html (optional)
-    },
+    url:"mongodb://jace:jace@cluster0-shard-00-00.99389.mongodb.net:27017,cluster0-shard-00-01.99389.mongodb.net:27017,cluster0-shard-00-02.99389.mongodb.net:27017/dj-portal?ssl=true&replicaSet=atlas-b2k500-shard-0&authSource=admin&retryWrites=true&w=majority",
+// },
+    // replSet: {
+    //   servers: [
+    //     {
+    //       host: 'cluster0-shard-00-00.99389.mongodb.net',
+    //       port: 27017 // Will override port from default config (optional)
+    //     },
+    //     {
+    //       host: 'cluster0-shard-00-01.99389.mongodb.net',
+    //       port: 27017
+    //     },
+    //     {
+    //       host: 'cluster0-shard-00-02.99389.mongodb.net',
+    //       port: 27017
+    //     }
+    //   ],
+    //   options: {
+    //     // authSource:"admin",
+    //     // retryWrites:true,
+    //     // w: "majority",
+    //     // autoReconnect : true,
+    //     // ssl:true,
+    //     // user: 'jace',
+    // // password: 'jace',
+    // // database: 'dj-portal'
+    //   } // See http://mongodb.github.io/node-mongodb-native/api-generated/replset.html (optional)
+    // },
     
-//     host: process.env.DB_PORT_27017_TCP_ADDR || '127.0.0.1',
-//     port: process.env.DB_PORT_27017_TCP_PORT || 27017,
-//     url: process.env.MONGOLAB_URI || process.env.MONGODB_URL,
+// //     host: process.env.DB_PORT_27017_TCP_ADDR || '127.0.0.1',
+// //     port: process.env.DB_PORT_27017_TCP_PORT || 27017,
+// //     url: process.env.MONGOLAB_URI || process.env.MONGODB_URL,
     user: 'jace',
     password: 'jace',
-    database: 'dj-portal'
+    // database: 'dj-portal',
+    // authSource:"admin",
+        // retryWrites:true,
+        // w: "majority",
+        // autoReconnect : true,
+        ssl:true
   },
 
   /***************************************************************************
