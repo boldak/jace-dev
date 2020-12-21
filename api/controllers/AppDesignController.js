@@ -9,10 +9,13 @@ module.exports = {
 		if(req.isSocket) console.log("Connect via socket ", req.socket.id)
 		// console.log(req)	
 		let index =  path.resolve(sails.config.appPath, '.tmp/public/index.html')
+		// console.log("Index file path: ",index)
 		let portal
 		fs.readFile(index, 
           function (err, data) {
+          	if(err) console.log(err.toString())
           	let page = data.toString()
+          	// console.log(page)
     		let defaultApp;
     
 		    let cookie = (req.headers.cookie) 
@@ -149,6 +152,7 @@ module.exports = {
 		                              },
 
 		            pages: app.pages || [],
+		            clientOptions: app.clientOptions || null,
 		            theme: app.theme,
 		            icon: app.icon,
 		            i18n: app.i18n,

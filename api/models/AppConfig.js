@@ -36,6 +36,9 @@ module.exports = {
           type: 'json'
     },
 
+    clientOptions:{
+      type:"json"
+    },
 
     icon: {
       type: 'string'
