@@ -102,10 +102,12 @@ module.exports.session = {
   //       ssl:true
   //     }
   // },
-  url: "mongodb://jace:jace@cluster0-shard-00-00.99389.mongodb.net:27017,cluster0-shard-00-01.99389.mongodb.net:27017,cluster0-shard-00-02.99389.mongodb.net:27017/dj-portal?ssl=true&replicaSet=atlas-b2k500-shard-0&authSource=admin&retryWrites=true&w=majority",//process.env.DB_PORT_27017_TCP_ADDR || '127.0.0.1',
+  // url: "mongodb://jace:jace@cluster0-shard-00-00.99389.mongodb.net:27017,cluster0-shard-00-01.99389.mongodb.net:27017,cluster0-shard-00-02.99389.mongodb.net:27017/dj-portal?ssl=true&replicaSet=atlas-b2k500-shard-0&authSource=admin&retryWrites=true&w=majority",//process.env.DB_PORT_27017_TCP_ADDR || '127.0.0.1',
 //   port: process.env.DB_PORT_27017_TCP_PORT || 27017,
   // db: 'dj-portal',
   collection: 'sessions',
+  url: process.env.MONGOLAB_URI || process.env.MONGODB_URL || process.env.ATLAS_URL, 
+
 //   url: process.env.MONGOLAB_URI || process.env.MONGODB_URL
 
   /***************************************************************************
