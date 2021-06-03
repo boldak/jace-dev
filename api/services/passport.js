@@ -323,7 +323,7 @@ passport.loadStrategies = function () {
 
       Strategy = strategies[key].strategy;
 
-      var baseUrl = sails.getBaseurl();
+      var baseUrl = `${process.env.APP_PROTOCOL}://${process.env.APP_HOST}`//sails.getBaseurl();
       
       console.log("*** BASE URL ***", baseUrl)
 
