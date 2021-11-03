@@ -73,7 +73,7 @@
     "systemjs": "0.16.9",
     "traceur": "0.0.89",
     "util": "^0.10.3",
-    "validator": "3.39.0",
+    "validator": "13.7.0",
     "xlsjs": "^0.7.5",
     "xlsx": "^0.8.0",
     "xml2js": "^0.4.16"
